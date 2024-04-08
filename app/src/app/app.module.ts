@@ -7,12 +7,10 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
-import { NavComponent } from './nav/nav.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavComponent,
   ],
   imports: [
     BrowserModule,
