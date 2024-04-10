@@ -1,0 +1,77 @@
+<header>
+  <br>
+  <h1 class="text-center">Shopping store</h1>
+  <br>
+</header>
+<br>
+<br>
+<div class="container" id="merchPC">
+  <div class="selects-sorting">
+    <select (change)="limitItems($event)" class="form-select" id="cantidad-productos"
+      aria-label="Default select example">
+      <option>Cantidad de productos</option>
+      <option value=3>3</option>
+      <option value=6>6</option>
+      <option value=9>9</option>
+      <option value="">Todos</option>
+    </select>
+    <select (change)="sortItems($event, true)" class="form-select" id="ordenar-productos"
+      aria-label="Default select example">
+      <option>Ordenar productos</option>
+      <option value="PreDesc">Precios más altos</option>
+      <option value="PreAsc">Precios más bajos</option>
+      <option value="NameA-Z">Nombre A-Z</option>
+      <option value="NameZ-A">Nombre Z-A</option>
+    </select>
+    <select #selectCategorias (change)="sortByCategory($event, true)" class="form-select" id="ordenar-categorias"
+      aria-label="Default select example">
+      <option value="Opcion0">Categorias</option>
+      <option *ngFor="let categoria of categorias; track $index" value={{categoria}}>{{categoria}}</option>
+    </select>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div *ngFor="let item of items; track $index" id="merchPack" class="col-4">
+      <img class="ol-4 mx-auto text-center" id="imgMerch" src={{item.image}} class="img-fluid">
+      <div class="row text-center" id="merchName">
+        <p class="col">{{item.title}}</p>
+      </div>
+      <div class="row text-center" id="merchPrice">
+        <p class="col">Categoria: {{item.category}}</p>
+      </div>
+      <div class="row text-center" id="merchPrice">
+        <p class="col">{{item.price | currency}}</p>
+      </div>
+      <div class="row text-center" id="btns">
+        <div class="col-4"></div>
+        <button (click)="showItem(item.id)" type="button" class="col-4 btn btn-outline-primary">Mostrar</button>
+        <div class="col-4"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container" id="merchSmartPhoneTablet">
+
+  <div class="row">
+    <div *ngFor="let item of items; track $index">
+      <img class="img-fluid" src={{item.image}}>
+      <div class="row text-center">
+        <p class="col">{{item.title}}</p>
+      </div>
+      <div class="row text-center">
+        <p class="col">{{item.prince | currency}}</p>
+      </div>
+      <div class="row text-center">
+        <div class="col-4"></div>
+        <button type="button" class="col-4 btn btn-outline-primary">Comprar</button>
+        <div class="col-4"></div>
+      </div>
+    </div>
+  </div>
+</div>
